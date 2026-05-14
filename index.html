@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to Wisemusique Studio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            color: #ecf0f1;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1000px;
+            width: 100%;
+            background: rgba(22, 33, 62, 0.95);
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+            padding: 60px 40px;
+            border: 1px solid rgba(52, 152, 219, 0.3);
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .header h1 {
+            font-size: 3.5em;
+            margin-bottom: 15px;
+            background: linear-gradient(45deg, #3498db, #9b59b6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .header p {
+            font-size: 1.3em;
+            color: #bdc3c7;
+            font-weight: 300;
+        }
+
+        .divider {
+            height: 3px;
+            width: 100px;
+            background: linear-gradient(90deg, #3498db, #9b59b6);
+            margin: 30px auto;
+            border-radius: 2px;
+        }
+
+        .studio-setup {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin-top: 40px;
+        }
+
+        .logo-section {
+            background: rgba(52, 73, 94, 0.5);
+            border-radius: 15px;
+            padding: 40px;
+            border: 2px dashed rgba(52, 152, 219, 0.5);
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .logo-section:hover {
+            border-color: rgba(52, 152, 219, 0.8);
+            background: rgba(52, 73, 94, 0.7);
+        }
+
+        .logo-section h2 {
+            font-size: 1.5em;
+            margin-bottom: 20px;
+            color: #3498db;
+        }
+
+        .logo-placeholder {
+            width: 150px;
+            height: 150px;
+            background: rgba(44, 62, 80, 0.8);
+            border: 2px solid rgba(52, 152, 219, 0.3);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 20px auto;
+            font-size: 3em;
+            transition: all 0.3s ease;
+        }
+
+        .logo-placeholder.has-image {
+            border: 2px solid rgba(52, 152, 219, 0.8);
+            background: rgba(44, 62, 80, 0.3);
+        }
+
+        .logo-placeholder img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+            border-radius: 8px;
+        }
+
+        .upload-input {
+            display: none;
+        }
+
+        .upload-btn {
+            background: linear-gradient(45deg, #3498db, #2980b9);
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 8px;
+            font-size: 1em;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 15px;
+            font-weight: 600;
+        }
+
+        .upload-btn:hover {
+            background: linear-gradient(45deg, #2980b9, #1e5f8f);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(52, 152, 219, 0.4);
+        }
+
+        .studio-info {
+            background: rgba(52, 73, 94, 0.5);
+            border-radius: 15px;
+            padding: 40px;
+            border: 2px solid rgba(155, 89, 182, 0.3);
+        }
+
+        .studio-info h2 {
+            font-size: 1.5em;
+            margin-bottom: 20px;
+            color: #9b59b6;
+        }
+
+        .studio-info ul {
+            list-style: none;
+        }
+
+        .studio-info li {
+            padding: 12px 0;
+            border-bottom: 1px solid rgba(52, 152, 219, 0.2);
+            font-size: 1.1em;
+        }
+
+        .studio-info li:last-child {
+            border-bottom: none;
+        }
+
+        .studio-info li:before {
+            content: "🎵 ";
+            margin-right: 10px;
+        }
+
+        @media (max-width: 768px) {
+            .studio-setup {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .header h1 {
+                font-size: 2.5em;
+            }
+
+            .container {
+                padding: 40px 25px;
+            }
+        }
+
+        .remove-logo-btn {
+            background: linear-gradient(45deg, #e74c3c, #c0392b);
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 6px;
+            font-size: 0.9em;
+            cursor: pointer;
+            margin-top: 10px;
+            display: none;
+            transition: all 0.3s ease;
+        }
+
+        .remove-logo-btn:hover {
+            background: linear-gradient(45deg, #c0392b, #a93226);
+        }
+
+        .remove-logo-btn.show {
+            display: inline-block;
+        }
+
+        .status-text {
+            color: #95a5a6;
+            font-size: 0.9em;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🎵 Welcome to Wisemusique Studio</h1>
+            <p>Your Professional Music Production Space</p>
+            <div class="divider"></div>
+        </div>
+
+        <div class="studio-setup">
+            <!-- Logo Section -->
+            <div class="logo-section">
+                <h2>Studio Logo</h2>
+                <p style="color: #95a5a6; margin-bottom: 20px;">Upload your studio logo</p>
+                
+                <div class="logo-placeholder" id="logoPlaceholder">
+                    🎨
+                </div>
+                
+                <input 
+                    type="file" 
+                    id="logoInput" 
+                    class="upload-input" 
+                    accept="image/*"
+                >
+                
+                <button class="upload-btn" onclick="document.getElementById('logoInput').click()">
+                    Choose Logo
+                </button>
+                
+                <button class="remove-logo-btn" id="removeLogoBtn" onclick="removeLogo()">
+                    Remove Logo
+                </button>
+                
+                <p class="status-text" id="statusText">Ready to upload</p>
+            </div>
+
+            <!-- Studio Information -->
+            <div class="studio-info">
+                <h2>Studio Features</h2>
+                <ul>
+                    <li>Professional Audio Production</li>
+                    <li>High-Quality Recording Equipment</li>
+                    <li>Modern Sound Engineering</li>
+                    <li>Mixing & Mastering Suite</li>
+                    <li>Collaborative Workspace</li>
+                    <li>Creative Environment</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const logoInput = document.getElementById('logoInput');
+        const logoPlaceholder = document.getElementById('logoPlaceholder');
+        const removeLogoBtn = document.getElementById('removeLogoBtn');
+        const statusText = document.getElementById('statusText');
+
+        // Handle file selection
+        logoInput.addEventListener('change', function(e) {
+            const file = e.target.files[0];
+            
+            if (file) {
+                // Validate file type
+                if (!file.type.startsWith('image/')) {
+                    statusText.textContent = '❌ Please upload an image file';
+                    statusText.style.color = '#e74c3c';
+                    return;
+                }
+
+                // Validate file size (max 5MB)
+                if (file.size > 5 * 1024 * 1024) {
+                    statusText.textContent = '❌ File size must be less than 5MB';
+                    statusText.style.color = '#e74c3c';
+                    return;
+                }
+
+                // Read and display image
+                const reader = new FileReader();
+                reader.onload = function(event) {
+                    logoPlaceholder.innerHTML = `<img src="${event.target.result}" alt="Studio Logo">`;
+                    logoPlaceholder.classList.add('has-image');
+                    removeLogoBtn.classList.add('show');
+                    statusText.textContent = `✅ Logo loaded: ${file.name}`;
+                    statusText.style.color = '#2ecc71';
+                };
+                reader.readAsDataURL(file);
+            }
+        });
+
+        // Remove logo
+        function removeLogo() {
+            logoPlaceholder.innerHTML = '🎨';
+            logoPlaceholder.classList.remove('has-image');
+            removeLogoBtn.classList.remove('show');
+            logoInput.value = '';
+            statusText.textContent = 'Ready to upload';
+            statusText.style.color = '#95a5a6';
+        }
+    </script>
+</body>
+</html>
