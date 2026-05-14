@@ -18,35 +18,17 @@
             overflow-x: hidden;
         }
 
-        /* Premium Banner with Background */
+        /* Premium Banner Section */
         .banner {
-            position: relative;
-            height: 500px;
             background: linear-gradient(135deg, #ffffff 0%, #f5f5f5 100%);
+            padding: 50px 20px;
+            position: relative;
             overflow: hidden;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            border-bottom: 8px solid #d4af37;
+            box-shadow: 0 10px 40px rgba(212, 175, 55, 0.2);
         }
 
-        /* Background Studio Image */
-        .banner-background {
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            opacity: 0.15;
-            z-index: 1;
-        }
-
-        .banner-background svg {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        /* Gold overlay gradient */
+        /* Studio Background */
         .banner::before {
             content: '';
             position: absolute;
@@ -54,157 +36,147 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: linear-gradient(135deg, rgba(212, 175, 55, 0.05) 0%, rgba(212, 175, 55, 0.02) 100%);
-            z-index: 2;
+            background-image: url('data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 1200 600%22%3E%3Cdefs%3E%3ClinearGradient id=%22studioBg%22 x1=%220%25%22 y1=%220%25%22 x2=%22100%25%22 y2=%22100%25%22%3E%3Cstop offset=%220%25%22 style=%22stop-color:%23ffffff;stop-opacity:1%22 /%3E%3Cstop offset=%22100%25%22 style=%22stop-color:%23f5f5f5;stop-opacity:1%22 /%3E%3C/linearGradient%3E%3C/defs%3E%3Crect fill=%22url(%23studioBg)%22 width=%221200%22 height=%22600%22/%3E%3Crect x=%2250%22 y=%22150%22 width=%22200%22 height=%22250%22 rx=%2210%22 fill=%22%23333%22 opacity=%220.08%22/%3E%3Crect x=%2270%22 y=%22170%22 width=%2230%22 height=%2220%22 rx=%225%22 fill=%22%23d4af37%22 opacity=%220.15%22/%3E%3Ccircle cx=%2285%22 cy=%22280%22 r=%2215%22 fill=%22%23d4af37%22 opacity=%220.1%22/%3E%3Crect x=%22500%22 y=%22150%22 width=%22220%22 height=%22250%22 rx=%2210%22 fill=%22%23333%22 opacity=%220.08%22/%3E%3Crect x=%22520%22 y=%22170%22 width=%2230%22 height=%2220%22 rx=%225%22 fill=%22%23d4af37%22 opacity=%220.15%22/%3E%3Ccircle cx=%22610%22 cy=%22280%22 r=%2220%22 fill=%22%23d4af37%22 opacity=%220.1%22/%3E%3Crect x=%22950%22 y=%22150%22 width=%22200%22 height=%22250%22 rx=%2210%22 fill=%22%23333%22 opacity=%220.08%22/%3E%3Crect x=%22970%22 y=%22170%22 width=%2230%22 height=%2220%22 rx=%225%22 fill=%22%23d4af37%22 opacity=%220.15%22/%3E%3Ccircle cx=%221050%22 cy=%22280%22 r=%2215%22 fill=%22%23d4af37%22 opacity=%220.1%22/%3E%3C/svg%3E');
+            background-size: cover;
+            background-position: center;
+            opacity: 1;
+            pointer-events: none;
         }
 
-        /* Top accent line */
-        .banner::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 5px;
-            background: linear-gradient(90deg, transparent, #d4af37, transparent);
-            z-index: 5;
-        }
-
-        .banner-content {
+        .banner-top {
             position: relative;
-            z-index: 3;
+            z-index: 2;
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 50px;
+            gap: 60px;
             max-width: 1400px;
-            width: 100%;
-            padding: 0 40px;
+            margin: 0 auto;
         }
 
-        /* Logo Upload Area */
-        .logo-upload-area {
-            position: relative;
-            flex-shrink: 0;
-        }
-
+        /* Logo Upload Frame */
         .logo-frame {
+            flex-shrink: 0;
+            position: relative;
+        }
+
+        .logo-frame-container {
             width: 220px;
             height: 220px;
-            background: rgba(212, 175, 55, 0.15);
-            border: 5px solid #d4af37;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.9), rgba(245, 245, 245, 0.9));
+            border: 6px solid #d4af37;
             border-radius: 20px;
             display: flex;
             align-items: center;
             justify-content: center;
             cursor: pointer;
             transition: all 0.4s ease;
-            box-shadow: 
-                0 0 30px rgba(212, 175, 55, 0.4),
-                inset 0 0 20px rgba(212, 175, 55, 0.1);
+            box-shadow: 0 0 30px rgba(212, 175, 55, 0.3);
             position: relative;
             overflow: hidden;
         }
 
-        .logo-frame:hover {
-            transform: scale(1.08);
-            box-shadow: 
-                0 0 50px rgba(212, 175, 55, 0.6),
-                inset 0 0 30px rgba(212, 175, 55, 0.2);
-            border-color: #ffd700;
+        .logo-frame-container:hover {
+            box-shadow: 0 0 50px rgba(212, 175, 55, 0.6),
+                        inset 0 0 20px rgba(212, 175, 55, 0.2);
+            transform: scale(1.03);
         }
 
-        .logo-frame img {
-            max-width: 95%;
-            max-height: 95%;
+        .logo-frame-content {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            text-align: center;
+            gap: 10px;
+        }
+
+        .logo-frame-content img {
+            max-width: 90%;
+            max-height: 90%;
             object-fit: contain;
             border-radius: 15px;
         }
 
         .logo-placeholder {
-            font-size: 6em;
-            color: rgba(212, 175, 55, 0.3);
-            text-align: center;
+            font-size: 4em;
+            color: rgba(212, 175, 55, 0.4);
+            margin-bottom: 10px;
         }
 
-        .upload-hint {
-            position: absolute;
-            bottom: -35px;
-            left: 50%;
-            transform: translateX(-50%);
-            background: #d4af37;
-            color: #1a1a1a;
-            padding: 8px 16px;
-            border-radius: 6px;
-            font-size: 0.85em;
-            font-weight: 700;
-            white-space: nowrap;
+        .logo-hint {
+            font-size: 0.75em;
+            color: rgba(212, 175, 55, 0.6);
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 1px;
             opacity: 0;
             transition: opacity 0.3s ease;
-            pointer-events: none;
         }
 
-        .logo-frame:hover .upload-hint {
+        .logo-frame-container:hover .logo-hint {
             opacity: 1;
         }
 
-        /* Text Content Area */
-        .banner-text {
+        /* Banner Text */
+        .banner-text-section {
             flex: 1;
-            z-index: 4;
+            text-align: left;
+            position: relative;
+            z-index: 2;
         }
 
-        .studio-title {
-            font-size: 4.5em;
+        .banner-accent-line {
+            height: 4px;
+            width: 150px;
+            background: linear-gradient(90deg, #d4af37, #ffd700, #d4af37);
+            border-radius: 2px;
+            margin-bottom: 25px;
+            animation: shimmer 3s ease-in-out infinite;
+        }
+
+        @keyframes shimmer {
+            0%, 100% {
+                box-shadow: 0 0 15px rgba(212, 175, 55, 0.5);
+            }
+            50% {
+                box-shadow: 0 0 30px rgba(255, 215, 0, 0.8);
+            }
+        }
+
+        .banner-text-section h1 {
+            font-size: 4em;
             font-weight: 900;
-            letter-spacing: -2px;
-            line-height: 1.1;
-            margin-bottom: 20px;
-            background: linear-gradient(135deg, #d4af37 0%, #ffd700 50%, #c9a227 100%);
+            letter-spacing: -1.5px;
+            margin-bottom: 15px;
+            background: linear-gradient(135deg, #d4af37, #ffd700, #d4af37);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
             animation: glow 3s ease-in-out infinite;
         }
 
         @keyframes glow {
             0%, 100% {
-                filter: drop-shadow(0 0 10px rgba(212, 175, 55, 0.3));
+                filter: drop-shadow(0 0 10px rgba(212, 175, 55, 0.4));
             }
             50% {
-                filter: drop-shadow(0 0 20px rgba(212, 175, 55, 0.5));
-            }
-        }
-
-        .studio-title-line {
-            height: 4px;
-            width: 150px;
-            background: linear-gradient(90deg, #d4af37, #ffd700, #c9a227);
-            border-radius: 2px;
-            margin-bottom: 25px;
-            animation: slideIn 0.8s ease-out;
-        }
-
-        @keyframes slideIn {
-            from {
-                width: 0;
-            }
-            to {
-                width: 150px;
+                filter: drop-shadow(0 0 25px rgba(212, 175, 55, 0.8));
             }
         }
 
         .banner-tagline {
-            font-size: 1.4em;
-            color: #1a1a1a;
-            font-weight: 300;
-            letter-spacing: 1px;
+            font-size: 1.5em;
+            color: #d4af37;
+            font-weight: 600;
             margin-bottom: 15px;
+            letter-spacing: 1px;
         }
 
         .banner-description {
-            font-size: 1.05em;
+            font-size: 1.1em;
             color: #555;
             font-weight: 300;
             line-height: 1.8;
@@ -213,6 +185,54 @@
 
         .upload-input {
             display: none;
+        }
+
+        @media (max-width: 1024px) {
+            .banner-top {
+                flex-direction: column;
+                gap: 40px;
+                text-align: center;
+            }
+
+            .banner-text-section {
+                text-align: center;
+            }
+
+            .banner-accent-line {
+                margin: 25px auto;
+            }
+
+            .banner-text-section h1 {
+                font-size: 3em;
+            }
+
+            .banner-tagline {
+                font-size: 1.3em;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .banner {
+                padding: 40px 20px;
+            }
+
+            .logo-frame-container {
+                width: 180px;
+                height: 180px;
+                border: 5px solid #d4af37;
+            }
+
+            .banner-text-section h1 {
+                font-size: 2.2em;
+            }
+
+            .banner-tagline {
+                font-size: 1.1em;
+            }
+
+            .banner-description {
+                font-size: 0.95em;
+            }
         }
 
         /* Main Container */
@@ -532,22 +552,6 @@
             font-weight: 300;
         }
 
-        @media (max-width: 1024px) {
-            .banner-content {
-                flex-direction: column;
-                gap: 30px;
-            }
-
-            .banner {
-                height: auto;
-                padding: 50px 20px;
-            }
-
-            .studio-title {
-                font-size: 3.5em;
-            }
-        }
-
         @media (max-width: 768px) {
             .upload-container {
                 grid-template-columns: 1fr;
@@ -558,10 +562,6 @@
                 font-size: 2em;
             }
 
-            .studio-title {
-                font-size: 2.5em;
-            }
-
             .upload-box {
                 padding: 30px;
             }
@@ -570,67 +570,36 @@
                 padding: 30px;
                 min-height: 250px;
             }
-
-            .logo-frame {
-                width: 180px;
-                height: 180px;
-            }
-
-            .banner-tagline {
-                font-size: 1.2em;
-            }
         }
     </style>
 </head>
 <body>
-    <!-- Premium Banner with Studio Background -->
+    <!-- Premium Banner with Studio Background and Logo Frame -->
     <div class="banner">
-        <!-- Studio Background Image -->
-        <div class="banner-background">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 500">
-                <defs>
-                    <linearGradient id="studioBg" x1="0%" y1="0%" x2="100%" y2="100%">
-                        <stop offset="0%" style="stop-color:#2a2a2a;stop-opacity:1" />
-                        <stop offset="100%" style="stop-color:#1a1a1a;stop-opacity:1" />
-                    </linearGradient>
-                </defs>
-                <rect fill="url(#studioBg)" width="1400" height="500"/>
-                
-                <!-- Studio Equipment Silhouettes -->
-                <rect x="50" y="150" width="250" height="280" rx="20" fill="#333" opacity="0.8"/>
-                <circle cx="175" cy="180" r="40" fill="#d4af37" opacity="0.2"/>
-                <rect x="80" y="250" width="190" height="120" rx="10" fill="#444" opacity="0.6"/>
-                
-                <rect x="450" y="120" width="300" height="310" rx="20" fill="#333" opacity="0.8"/>
-                <circle cx="600" cy="150" r="50" fill="#d4af37" opacity="0.2"/>
-                <path d="M 500 300 Q 600 250 700 300" stroke="#d4af37" stroke-width="3" fill="none" opacity="0.3"/>
-                
-                <rect x="950" y="180" width="280" height="250" rx="20" fill="#333" opacity="0.8"/>
-                <circle cx="1090" cy="210" r="45" fill="#d4af37" opacity="0.2"/>
-                <rect x="1000" y="280" width="160" height="100" rx="8" fill="#444" opacity="0.6"/>
-                
-                <!-- Decorative elements -->
-                <line x1="100" y1="450" x2="1300" y2="450" stroke="#d4af37" stroke-width="2" opacity="0.2"/>
-            </svg>
-        </div>
-
-        <!-- Banner Content -->
-        <div class="banner-content">
+        <div class="banner-top">
             <!-- Logo Upload Frame -->
-            <div class="logo-upload-area">
-                <div class="logo-frame" onclick="document.getElementById('logoInput').click()">
-                    <div class="logo-placeholder" id="bannerLogo">🎵</div>
-                    <div class="upload-hint">Click to upload</div>
+            <div class="logo-frame">
+                <div class="logo-frame-container" onclick="document.getElementById('bannerLogoInput').click()">
+                    <div class="logo-frame-content" id="bannerLogoContent">
+                        <div class="logo-placeholder">🎵</div>
+                        <div class="logo-hint">Click to Upload</div>
+                    </div>
                 </div>
+                <input 
+                    type="file" 
+                    id="bannerLogoInput" 
+                    class="upload-input" 
+                    accept="image/*"
+                >
             </div>
 
-            <!-- Creative Text -->
-            <div class="banner-text">
-                <div class="studio-title-line"></div>
-                <h1 class="studio-title">WISEMUSIQUE<br>STUDIO</h1>
+            <!-- Banner Text -->
+            <div class="banner-text-section">
+                <div class="banner-accent-line"></div>
+                <h1>WISEMUSIQUE STUDIO</h1>
                 <p class="banner-tagline">✨ Where Sound Comes to Life ✨</p>
                 <p class="banner-description">
-                    Elevate your music with professional production, world-class engineering, and creative excellence. Your sonic masterpiece awaits.
+                    Experience professional music production at its finest. Our state-of-the-art studio combines cutting-edge technology with creative expertise to bring your musical vision to reality.
                 </p>
             </div>
         </div>
@@ -681,7 +650,7 @@
         <!-- Upload Logo Section -->
         <section class="upload-section">
             <h2>Your Studio Logo</h2>
-            <p>Upload your studio logo to display it in our professional banner</p>
+            <p>Upload your studio logo to display it prominently in our professional banner</p>
             
             <div class="upload-container">
                 <div class="upload-box" onclick="document.getElementById('logoInput').click()">
@@ -769,60 +738,56 @@
 
     <script>
         const logoInput = document.getElementById('logoInput');
+        const bannerLogoInput = document.getElementById('bannerLogoInput');
         const logoPreview = document.getElementById('logoPreview');
-        const bannerLogo = document.getElementById('bannerLogo');
+        const bannerLogoContent = document.getElementById('bannerLogoContent');
         const removeLogoBtn = document.getElementById('removeLogoBtn');
         const statusText = document.getElementById('statusText');
 
-        // Handle file selection
-        logoInput.addEventListener('change', function(e) {
+        logoInput.addEventListener('change', handleLogoUpload);
+        bannerLogoInput.addEventListener('change', handleLogoUpload);
+
+        function handleLogoUpload(e) {
             const file = e.target.files[0];
             
             if (file) {
-                // Validate file type
                 if (!file.type.startsWith('image/')) {
                     statusText.textContent = '❌ Please upload an image file';
                     statusText.style.color = '#e74c3c';
                     return;
                 }
 
-                // Validate file size (max 5MB)
                 if (file.size > 5 * 1024 * 1024) {
                     statusText.textContent = '❌ File size must be less than 5MB';
                     statusText.style.color = '#e74c3c';
                     return;
                 }
 
-                // Read and display image
                 const reader = new FileReader();
                 reader.onload = function(event) {
                     const imgHtml = `<img src="${event.target.result}" alt="Studio Logo">`;
                     
-                    // Update preview
                     logoPreview.innerHTML = imgHtml;
                     logoPreview.classList.add('has-image');
                     
-                    // Update banner logo
-                    bannerLogo.innerHTML = imgHtml;
+                    bannerLogoContent.innerHTML = imgHtml;
                     
-                    // Update buttons
                     removeLogoBtn.classList.add('show');
                     
-                    // Update status
                     statusText.textContent = `✅ Logo loaded: ${file.name}`;
                     statusText.style.color = '#2ecc71';
                 };
                 reader.readAsDataURL(file);
             }
-        });
+        }
 
-        // Remove logo
         function removeLogo() {
             logoPreview.innerHTML = '🎨';
             logoPreview.classList.remove('has-image');
-            bannerLogo.innerHTML = '🎵';
+            bannerLogoContent.innerHTML = '<div class="logo-placeholder">🎵</div><div class="logo-hint">Click to Upload</div>';
             removeLogoBtn.classList.remove('show');
             logoInput.value = '';
+            bannerLogoInput.value = '';
             statusText.textContent = 'Ready to upload your logo';
             statusText.style.color = '#999';
         }
